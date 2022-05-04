@@ -64,6 +64,7 @@ color: 'yellow',
 }
 ];
 
+
 // Rooms Array
 
 const roomsArray = [
@@ -128,6 +129,8 @@ const roomsArray = [
     }
 ];
 
+
+
 // Weapons Array
 
 const weaponsArray = [
@@ -180,14 +183,35 @@ const weaponsArray = [
 
 // ITERATION 2
 
-function selectRandom() {}
 
-function pickMystery() {}
+function selectRandom() {
+  let randomSuspect = suspectsArray[Math.floor( Math.random() * suspectsArray.length )]
+    let randomWeapon = weaponsArray[Math.floor( Math.random() * weaponsArray.length )]
+    let randomRoom = roomsArray[Math.floor( Math.random() * weaponsArray.length )]
+    
+    console.log(randomSuspect, randomWeapon, randomRoom)
+}
+
+
+
+function pickMystery() {
+  let misteryEnvelope =[];
+  misteryEnvelope.push(randomSelectorForRoom(suspectsArray));
+  misteryEnvelope.push(randomSelectorForName(roomsArray));
+  misteryEnvelope.push(randomSelectorForWeapon(weaponsArray));
+  // console.log(misteryEnvelope);
+  return misteryEnvelope;
+}
 
 
 // ITERATION 3
 
-function revealMystery() {}
+function revealMystery() {
+  let mysteryArray = pickMystery();
+    console.log(mysteryArray[1].first_name +" "+ mysteryArray[1].last_name + " killed Mr.Boddy using the "+ mysteryArray[2].name+ " in the " +  mysteryArray[0]+ " !");
+
+}
+revealMystery();
 
 
 
